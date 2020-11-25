@@ -27,11 +27,19 @@ PUPPETCODE
     it { is_expected.to be_directory }
   end
 
+  describe file('/etc/minio/.mc') do
+    it { is_expected.to be_directory }
+  end
+
   describe file('/etc/minio/config') do
     it { is_expected.to be_file }
   end
 
   describe file('/opt/minio/minio') do
+    it { is_expected.to be_file }
+  end
+
+  describe file('/opt/minio/mc') do
     it { is_expected.to be_file }
   end
 

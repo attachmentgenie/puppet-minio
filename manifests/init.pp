@@ -93,6 +93,12 @@ class minio (
   String $group,
   Optional[String] $home,
 
+  String $client_base_url,
+  String $client_configuration_directory,
+  String $client_version,
+  String $client_checksum,
+  String $client_checksum_type,
+
   String $base_url,
   String $version,
   String $checksum,
@@ -109,6 +115,7 @@ class minio (
   String $service_template,
   String $service_provider,
   ) {
+  class { '::minio::client': }
 
   class { '::minio::user': }
   class { '::minio::install': }
@@ -124,4 +131,5 @@ class minio (
   -> Class['minio::install']
   -> Class['minio::config']
   ~> Class['minio::service']
+  -> Class['minio::client']
 }
