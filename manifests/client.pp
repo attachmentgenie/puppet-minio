@@ -47,7 +47,7 @@ class minio::client (
   String $installation_directory  = $minio::installation_directory,
   ) {
 
- file { $configuration_directory:
+  file { $configuration_directory:
     ensure => 'directory',
     owner  => $owner,
     group  => $group,
